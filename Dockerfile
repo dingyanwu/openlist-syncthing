@@ -22,7 +22,7 @@ RUN echo '#!/bin/sh' > /opt/service/start/openlist/run && \
 # 目录：/opt/service/start/syncthing
 RUN mkdir -p /opt/service/start/syncthing && \
     echo '#!/bin/sh' > /opt/service/start/syncthing/run && \
-    echo 'exec /bin/syncthing server -H /data/syncthing' >> /opt/service/start/syncthing/run && \
+    echo 'exec /bin/syncthing serve -H /data/syncthing' >> /opt/service/start/syncthing/run && \
     chmod +x /opt/service/start/syncthing/run
 
 # ===== 可选：从 /opt/service/stop/aria2 拷贝到 /opt/service/start/aria2（如果存在）=====
@@ -49,4 +49,5 @@ RUN echo '#!/bin/sh' > /entrypoint.sh && \
     chmod +x /entrypoint.sh
 
 # 容器启动时运行入口点
+
 ENTRYPOINT ["/entrypoint.sh"]
