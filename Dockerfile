@@ -22,7 +22,7 @@ RUN echo '#!/bin/sh' > /opt/service/start/openlist/run && \
 # 目录：/opt/service/start/syncthing
 RUN mkdir -p /opt/service/start/syncthing && \
     echo '#!/bin/sh' > /opt/service/start/syncthing/run && \
-    echo 'exec /bin/syncthing -home=/data/syncthing' >> /opt/service/start/syncthing/run && \
+    echo 'exec /bin/syncthing server -H /data/syncthing' >> /opt/service/start/syncthing/run && \
     chmod +x /opt/service/start/syncthing/run
 
 # ===== 可选：从 /opt/service/stop/aria2 拷贝到 /opt/service/start/aria2（如果存在）=====
