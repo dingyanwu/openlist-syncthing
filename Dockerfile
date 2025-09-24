@@ -1,9 +1,6 @@
 # 使用官方基础镜像（已含 aria2）
 FROM openlistteam/openlist:latest-lite-aria2
 
-# 安装 bash（某些工具或脚本可能需要）
-RUN apk add --no-cache bash
-
 # 从 syncthing 官方镜像拷贝 syncthing 二进制到 /bin/syncthing
 COPY --from=syncthing/syncthing:latest /bin/syncthing /bin/syncthing
 
@@ -51,3 +48,4 @@ RUN echo '#!/bin/sh' > /entrypoint.sh && \
 # 容器启动时运行入口点
 
 ENTRYPOINT ["/entrypoint.sh"]
+
