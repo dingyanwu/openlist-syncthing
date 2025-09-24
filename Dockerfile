@@ -15,7 +15,8 @@ RUN mkdir -p /data/openlist /data/syncthing
 
 # ===== 创建 openlist 服务 =====
 # 目录：/opt/service/start/openlist
-RUN echo '#!/bin/sh' > /opt/service/start/openlist/run && \
+RUN mkdir -p /opt/service/start/openlist && \
+    echo '#!/bin/sh' > /opt/service/start/openlist/run && \
     echo 'exec /opt/openlist/openlist --data /data/openlist server' >> /opt/service/start/openlist/run && \
     chmod +x /opt/service/start/openlist/run
 
@@ -52,4 +53,5 @@ RUN echo '#!/bin/sh' > /entrypoint.sh && \
 # 容器启动时运行入口点
 
 ENTRYPOINT ["/entrypoint.sh"]
+
 
